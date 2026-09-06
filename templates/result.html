@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Triage Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e8f0fe;
+            color: #333;
+            padding: 10px;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        h2 {
+            text-align: center;
+            color: #1a73e8;
+        }
+        p {
+            font-size: 16px;
+            margin: 8px 0;
+            word-wrap: break-word;
+        }
+        .priority {
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 15px;
+            color: white;
+        }
+        .priority-1 { background-color: #f28b82; } /* Critical */
+        .priority-2 { background-color: #fbbc04; color: black; } /* High */
+        .priority-3 { background-color: #fff475; color: black; } /* Medium */
+        .priority-4 { background-color: #ccff90; color: black; } /* Low */
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #1a73e8;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+        a:hover {
+            background-color: #1558b0;
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 15px; }
+            p { font-size: 14px; }
+            .priority { font-size: 16px; padding: 8px; }
+            a { padding: 8px 15px; font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Medical Triage Result</h2>
+        <p><strong>Age:</strong> {{ age }}</p>
+        <p><strong>Severity Level:</strong> {{ severity }}</p>
+        <p><strong>Heart Rate:</strong> {{ heart_rate }} bpm</p>
+        <p><strong>Blood Pressure:</strong> {{ bp_systolic }}/{{ bp_diastolic }} mmHg</p>
+        <p><strong>Oxygen Level:</strong> {{ oxygen }}%</p>
+        <p><strong>Consciousness Level:</strong> {{ consciousness }}</p>
+        <p><strong>Symptoms / Other Factors:</strong> {{ symptoms }}</p>
+        <div class="priority priority-{{ priority_num }}">
+            Assigned Priority: {{ priority }}
+        </div>
+        <a href="/">Go Back</a> | <a href="/history">View History</a>
+    </div>
+</body>
+</html>
+
